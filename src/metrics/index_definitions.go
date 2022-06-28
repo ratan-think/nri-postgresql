@@ -55,7 +55,7 @@ var indexDefinition = &QueryDefinition{
 								 JOIN pg_stat_all_indexes psai ON x.indexrelid = psai.indexrelid )
 					AS foo
 					ON t.tablename = foo.ctablename
-			where indexname is not null and t.schemaname || '.' || t.tablename || '.' || indexname in (%SCHEMA_TABLE_INDEXES%)
+			where indexname is not null and t.schemaname || '.' || t.tablename || '.' || indexname in ('%SCHEMA_TABLE_INDEXES%')
 			ORDER BY 1,2;`,
 
 	dataModels: []struct {
